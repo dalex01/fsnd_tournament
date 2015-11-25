@@ -111,6 +111,17 @@ def swissPairings():
         id2: the second player's unique id
         name2: the second player's name
     """
+    standing = playerStandings()
+
+    def my_range(start, end, step):
+        while start <= end:
+            yield start
+            start += step
+
+    res_list = []
+    for i in my_range(0, len(standing)-1, 2):
+        res_list.append((standing[i][0], standing[i][1], standing[i+1][0], standing[i+1][1]))
+    return res_list
 
 
 
