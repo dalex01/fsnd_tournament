@@ -5,8 +5,9 @@
 -- SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- SET FOREIGN_KEY_CHECKS=0;
 
+DROP VIEW IF EXISTS games_won;
+DROP VIEW IF EXISTS games_lose;
 DROP TABLE IF EXISTS matches;
-DROP TABLE IF EXISTS tours;
 DROP TABLE IF EXISTS players;
 
 -- ---
@@ -34,20 +35,9 @@ CREATE TABLE matches (
 );
 
 -- ---
--- Table 'tours'
---
--- ---
-
-CREATE TABLE tours (
-  id INTEGER,
-  PRIMARY KEY (id)
-);
-
--- ---
 -- Foreign Keys
 -- ---
 
-ALTER TABLE matches ADD FOREIGN KEY (tour) REFERENCES tours (id);
 ALTER TABLE matches ADD FOREIGN KEY (winner) REFERENCES players (id);
 ALTER TABLE matches ADD FOREIGN KEY (winner) REFERENCES players (id);
 
